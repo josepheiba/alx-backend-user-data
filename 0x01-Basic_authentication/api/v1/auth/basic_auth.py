@@ -40,7 +40,7 @@ class BasicAuth(Auth):
 
     def extract_user_credentials(
         self, decoded_base64_authorization_header: str
-    ) -> tuple[str, str]:
+    ) -> (str, str):
         """ Method that should implement the logic for checking if a request
         """
         if decoded_base64_authorization_header is None:
