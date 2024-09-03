@@ -5,6 +5,9 @@ from flask import request
 
 
 class Auth:
+    """ Auth class
+    """
+
     def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
         """ Method that should implement the logic for checking if a path
             needs authentication
