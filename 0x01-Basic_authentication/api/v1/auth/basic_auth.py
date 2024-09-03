@@ -2,6 +2,7 @@
 """ basic_auth.py
 """
 from api.v1.auth.auth import Auth
+import base64
 
 
 class BasicAuth(Auth):
@@ -31,8 +32,8 @@ class BasicAuth(Auth):
         if type(base64_authorization_header) is not str:
             return None
         try:
-            decoded_bytes = base64.b64decode(base64_authorization_header)
-            decoded_str = decoded_bytes.decode('utf-8')
-            return decoded_str
-        except (base64.binascii.Error, UnicodeDecodeError)::
+            header = base64_authorization_header.encode('utf-8')
+            header = base64.b64decode(header)
+            return header.decode('utf-8')
+        except Exception:
             return None
