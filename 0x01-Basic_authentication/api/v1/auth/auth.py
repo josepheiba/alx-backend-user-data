@@ -15,13 +15,11 @@ class Auth:
         """
         return False
 
-
     def authorization_header(self, request=None) -> str:
         """ Method that should implement the logic for checking if a request
             is authorized
         """
         return None
-
 
     def current_user(self, request=None) -> TypeVar('User'):
         """ Method that should implement the logic for checking if a request
