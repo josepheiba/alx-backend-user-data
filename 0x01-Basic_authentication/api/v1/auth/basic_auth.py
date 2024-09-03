@@ -8,10 +8,10 @@ class BasicAuth(Auth):
     """ BasicAuth class
     """
     def extract_base64_authorization_header(
-        """ Method that should implement the logic for checking if a request
-        """
         self, authorization_header: str
     ) -> str:
+        """ Method that should implement the logic for checking if a request
+        """
         if authorization_header is None:
             return None
         if type(authorization_header) is not str:
