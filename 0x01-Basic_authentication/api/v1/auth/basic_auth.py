@@ -74,3 +74,12 @@ class BasicAuth(Auth):
                 return user
         except Exception:
             return None
+
+    def current_user(self, request=None) -> TypeVar('User'):
+        """ Method that should implement the logic for checking if a request
+        """
+        header = self.authorization_header(request)
+        base64_header = self.extract_base64_authorization_header(header)
+        decoded_header = self.decode_base64_authorization_header(base64_header)
+        user, pwd = self.extract_user_credentials(decoded_header)
+        return self.user_object_from_credentials(user, pwd)
