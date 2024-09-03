@@ -18,7 +18,7 @@ class Auth:
         for expath in excluded_paths:
             if path == expath or path == expath + '/' or path + '/' == expath:
                 return False
-            if expath[-1] == '*' and path.startswith(expath[:-1]):
+            elif expath[-1] == '*' and path.startswith(expath[:-1]):
                 return False
         return True
 
