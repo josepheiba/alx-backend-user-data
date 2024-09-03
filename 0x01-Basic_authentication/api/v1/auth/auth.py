@@ -1,4 +1,8 @@
+#!/usr/bin/env python3
+""" auth.py
+"""
 from flask import request
+
 
 class Auth:
     def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
