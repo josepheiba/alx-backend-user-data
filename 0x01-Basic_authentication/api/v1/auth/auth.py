@@ -24,6 +24,10 @@ class Auth:
         """ Method that should implement the logic for checking if a request
             is authorized
         """
+        if request is None or request.headers.get('Authorization') is None:
+            return None
+        else:
+            return request.headers.get('Authorization')
         return None
 
     def current_user(self, request=None) -> TypeVar('User'):
