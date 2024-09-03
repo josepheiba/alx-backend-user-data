@@ -20,3 +20,17 @@ class BasicAuth(Auth):
             return None
         else:
             return authorization_header[6:]
+
+    def decode_base64_authorization_header(
+        self, base64_authorization_header: str
+    ) -> str:
+        """ Method that should implement the logic for checking if a request
+        """
+        if base64_authorization_header is None:
+            return None
+        if type(base64_authorization_header) is not str:
+            return None
+        try:
+            return base64_authorization_header.encode('utf-8').decode('base64')
+        except Exception:
+            return None
