@@ -13,7 +13,12 @@ class Auth:
         """ Method that should implement the logic for checking if a path
             needs authentication
         """
-        return False
+        if path is None or excluded_paths is None or excluded_paths == []:
+            return True
+        for expath in excluded_paths:
+            if path == expath or path == expath + '/' or path + '/' == expath:
+                return False
+        return True
 
     def authorization_header(self, request=None) -> str:
         """ Method that should implement the logic for checking if a request
