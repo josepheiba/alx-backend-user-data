@@ -37,3 +37,11 @@ class Auth:
             is authorized
         """
         return None
+
+    def session_cookie(self, request=None):
+        """ Method that should implement the logic
+        """
+        if request is None:
+            return None
+        session_name = request.cookies.get('session_id')
+        return session_name
