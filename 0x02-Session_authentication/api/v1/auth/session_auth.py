@@ -12,13 +12,9 @@ class SessionAuth(Auth):
     def create_session(self, user_id: str = None) -> str:
         """ Method that should implement the logic for checking if a request
         """
-        if user_id is None:
-            return None
-        if type(user_id) is not str:
+        if user_id is None or not isinstance(user_id, str):
             return None
         session_id = str(uuid.uuid4())
-        if session_id is None:
-            return None
         self.user_id_by_session_id[session_id] = user_id
         return session_id
 
